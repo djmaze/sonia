@@ -77,7 +77,8 @@ module Sonia
     def initialize_widgets
       @widgets = []
 
-      config.each do |widget, config|
+      config.each do |name, config|
+        widget = config[:widget] || name
         class_name = "Sonia::Widgets::#{widget.to_s}"
         log.info("Server") { "Created widget #{widget} with #{config.inspect}" }
         @widgets << module_eval(class_name).new(config)
