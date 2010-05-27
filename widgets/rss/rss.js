@@ -23,7 +23,7 @@ var RSS = Class.create(Widget, {
   update: function() {
     this.contentContainer.childElements().invoke('remove');
     this.messages.each(function(message){
-      var i = new Element("p").update(message);
+      var i = new Element("p").update('<a href="' + message.url + '" target="_blank">' + message.title + '</a>');
       this.contentContainer.insert(i);
       this.contentContainer.insert(new Element('hr' ));
     }.bind(this));

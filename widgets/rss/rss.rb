@@ -13,7 +13,14 @@ module Sonia
       private
       def fetch_data
         log_info "Polling `#{service_url}'"
-        http = EventMachine::HttpRequest.new(service_url).get
+
+        options = {}
+        if config[:username]
+          encoded = Base64.encode64("#{config[:username]}:#{config[:password]}")[0..-2]
+          options[:head] = { "Authorization" => "Basic #{encoded}" }
+        end 
+
+        http = EventMachine::HttpRequest.new(service_url).get(options)
         http.errback { log_fatal_error(http) }
         http.callback {
           handle_fetch_data_response(http)
@@ -29,7 +36,17 @@ module Sonia
       end
 
       def parse_response(response)
-        items = Nokogiri::XML.parse(response).xpath(config[:xpath]).map{|t| t.content}
+        @xpath = config[:xpath] || '//item'
+        @xpath_title = config[:xpath_title] || "title"
+        @xpath_url = config[:xpath_url] || "link"
+        @xpath_url_attr = config[:xpath_url_attr]
+        
+        items = Nokogiri::XML.parse(response).xpath(@xpath).map do |t| 
+          { 
+            :url => @xpath_url_attr ? t.xpath(@xpath_url).first.attributes[@xpath_url_attr].value : t.xpath(@xpath_url).first.content, 
+            :title => t.xpath(@xpath_title).first.content
+          }
+        end
         log_info("RSS items: #{items}")
         push :items => items[0...config[:nitems]]
       rescue => e

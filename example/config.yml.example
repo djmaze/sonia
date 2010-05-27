@@ -1,53 +1,67 @@
-Twitter:
-  name: twitter
-  title: Our Tweets
-  nitems: 5
-  username: username
-  password: password
-  follow: soniaappcom
+# Example configuration file for all Sonia Widgets
 
-Tfl:
-  name: tfl
-  title: TfL Status
+# Cofiguration for webserver host and port
+webserver:
+  host: localhost
+  port: 8080
 
-Foursquare:
-  name: foursquare
-  title: Where we are
-  username: username_email_or_mobile_number
-  password: password
+# Configuration for websocket host and port
+websocket:
+  host: localhost
+  port: 9090
 
-Campfire:
-  nitems: 5
-  name: campfire
-  title: Campfire
-  room_id: 1
-  url: "https://sample.campfirenow.com"
-  token: your_api_key
+# Configuration for Widgets
+widgets:
+  Twitter:
+    title: Our Tweets   # Title for Twitter widget
+    name: twitter
+    nitems: 5           # Number of tweets to show
+    username: username  # Username for Twitter account
+    password: password  # Password for Twitter account
+    follow: soniaappcom # What users to follow, and effectively what user's tweets to show
 
-Icinga:
-  name: icinga
-  username: icingaadmin
-  password: icingaadmin
-  title: Icinga Status
-  url: "http://localhost/icinga/cgi-bin/tac.cgi"
+  Tfl:
+    title: TfL Status # Title for TFL widget
+    name: tfl
 
-Github:
-  title: Github Commits
-  name: github
-  username: your_username
-  token: your_token
-  nitems: 5
+  Foursquare:
+    title: Where we are                       # Title for Foursquare widget
+    name: foursquare
+    username: username_email_or_mobile_number # Username for Foursquare account
+    password: password                        # Password for Foursquare account
 
-YahooWeather:
-  title: Weather for Paris
-  name: yahoo_weather
-  woeid: 615702
-  units: celsius
+  Campfire:
+    title: Campfire                       # Title for Campfire widget
+    name: campfire
+    room_id: 1                            # Campfire room id to watch for new messages
+    url: "https://sample.campfirenow.com" # Your Campfire URL
+    token: your_api_key                   # API Token from My Info tab
+    nitems: 5                             # Number of messages to show
 
-RSS:
-  name: RSS
-  title: Feeds
-  poll_time: 20
-  url: "http://www.engadget.com/rss.xml"
-  xpath: "//item//title"
-  nitems: 5
+  Icinga:
+    title: Icinga Status                           # Title for Icinga widget
+    name: icinga
+    username: icingaadmin                          # Username for Icinga
+    password: icingaadmin                          # Password for Icinga
+    url: "http://localhost/icinga/cgi-bin/tac.cgi" # URL to tac.cgi
+
+  Github:
+    title: Github Commits   # Title for Github widget
+    name: github
+    username: your_username # Username for Github account
+    token: your_token       # Token for Github account
+    nitems: 5               # Number of commits to show
+
+  YahooWeather:
+    title: Weather for Paris # Title for YahooWeather widget
+    name: yahoo_weather
+    woeid: 615702            # Where on Earth IDentifier (http://developer.yahoo.com/geo/geoplanet/guide/concepts.html)
+    units: celsius           # Units, either celcius or fahrenheit
+
+  RSS:
+    title: Feeds                           # Title for RSS widget
+    name: RSS
+    poll_time: 20                          # Poll time frequency
+    url: "http://www.engadget.com/rss.xml" # URL to RSS feed
+    xpath: "//item//title"                 # XPath to content to show
+    nitems: 5                              # Number of RSS items to show
