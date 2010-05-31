@@ -1,9 +1,9 @@
-# Bookmarks widget
-# 
-# Technique was borrowed from http://www.netzgesta.de/dev/quickchoice.html. 
-# Thanks to Christian Effenberger for that!
-#
-# 
+/* Bookmarks widget
+ * 
+ * Technique was borrowed from http://www.netzgesta.de/dev/quickchoice.html. 
+ * Thanks to Christian Effenberger for that!
+ *
+*/
 var Bookmarks = Class.create(Widget, {
   initialize: function($super, widget_id, config) {
     this.bookmarks = {};
