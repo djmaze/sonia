@@ -45,9 +45,6 @@ div.widget {
   z-index: 100;
   background-color: #cccccc;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(255,255,255)),color-stop(1, rgb(148,148,148)));
-  margin: 16px;
-  margin-top: 80px;
-  margin-bottom: -80px;
   color: black;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
