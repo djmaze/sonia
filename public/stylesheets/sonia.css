@@ -17,7 +17,7 @@ body {
   height: 100%;
   background-color: black;
   color: #EAEAEA;
-  font-size: 16px;
+  font-size: 14px;
   font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
@@ -61,7 +61,7 @@ div.widget p hr {
 }
 
 div.widget h2 {
-  font-size: 24px;
+  font-size: 125%;
   font-weight: bold;
 }
 
@@ -89,13 +89,36 @@ div.widget img {
   margin: 5px;
 }
 
-div.widget img.icon {
+div.widget > img.icon, div.widget a.icon {
   margin: 0;
   position: absolute;
   width: 64px;
   height: 64px;
   top: -35px;
   right: 0;
+}
+div.widget a.icon img {
+  width: 64px;
+  height: 64px;
+  border-bottom: 1px solid orange;
+}
+div.widget a.icon img:hover {
+  cursor: pointer;
+  border-bottom: 5px solid orange;
+}
+
+
+div.widget a {
+  color: #000;
+  text-decoration: none;
+}
+div.widget a:hover { 
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+hr {
+  margin: 0;
 }
 
 #pager {
