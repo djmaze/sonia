@@ -31,7 +31,7 @@ var Widget = Class.create({
   },
 
   buildContainer: function(config) {
-    this.container = new Element("div", {id: this.widget_id, 'class': "widget " + config.name});
+    this.container = new Element("div", {id: this.widget_id, 'class': "widget " + config.widget + " " + config.name});
     this.parent.appendChild(this.container);
   },
 
