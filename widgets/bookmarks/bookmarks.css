@@ -1,0 +1,58 @@
+.widget.Bookmarks { 
+  width: 460px;
+  z-index: 50;
+}
+
+.Bookmarks .thumbnail {
+  -moz-border-radius:10px 10px 10px 10px;
+  -moz-box-shadow:0 0 4px black;
+  border:10px solid #E0E0E0;
+  float:left;
+  height:150px;
+  margin:5px;
+  padding:0;
+  position:relative;
+  text-align:center;
+  vertical-align:bottom;
+  width:200px;
+}
+
+.Bookmarks .thumbnail:hover {
+  border: 10px solid orange;
+}
+
+.Bookmarks .thumbnail img {
+  float: none;
+}
+
+.Bookmarks .lock {
+  height:150px;
+  left:0;
+  outline:medium none;
+  overflow:hidden;
+  position:absolute;
+  top:0;
+  width:200px;
+}
+
+.Bookmarks iframe { 
+  -moz-transform:scale(0.25);
+  -moz-transform-origin:left top;
+  border:0 none;
+  height:600px;
+  padding:0;
+  width:800px;
+}
+
+.Bookmarks .link {
+  height:148px;
+  left:0;
+  position:absolute;
+  top:0;
+  width:198px;
+}
+
+.Bookmarks .link .title, .Bookmarks .thumbnail .title {
+  background-color: white;
+  margin-top: 128px;
+}

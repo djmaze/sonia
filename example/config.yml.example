@@ -65,3 +65,14 @@ widgets:
     url: "http://www.engadget.com/rss.xml" # URL to RSS feed
     xpath: "//item//title"                 # XPath to content to show
     nitems: 5                              # Number of RSS items to show
+
+  Bookmarks:
+    title: Bookmarks
+    name: Bookmarks
+    bookmarks:
+      Google:
+        url: http://www.google.com
+      Github:
+        url: https://github.com/
+        thumbnail: https://github.com/images/modules/header/logov3.png
+                
