@@ -65,6 +65,7 @@ widgets:
     url: "http://www.engadget.com/rss.xml" # URL to RSS feed
     xpath: "//item//title"                 # XPath to content to show
     nitems: 5                              # Number of RSS items to show
+    max_age_in_days: 14                    # Maximum age of items to show
 
   Bookmarks:
     title: Bookmarks

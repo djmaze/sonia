@@ -41,14 +41,17 @@ module Sonia
         @xpath_url = config[:xpath_url] || "link"
         @xpath_url_attr = config[:xpath_url_attr]
         @xpath_pubdate = config[:xpath_pubdate] || "pubDate"
+        @max_age_in_days = config[:max_age_in_days]
         
         items = Nokogiri::XML.parse(response).xpath(@xpath).map do |t| 
+          pubdate = t.xpath(@xpath_pubdate).first.content
           { 
             :url => @xpath_url_attr ? t.xpath(@xpath_url).first.attributes[@xpath_url_attr].value : t.xpath(@xpath_url).first.content, 
             :title => t.xpath(@xpath_title).first.content,
-            :pubdate => t.xpath(@xpath_pubdate).first.content
-          }
-        end
+            :pubdate => pubdate 
+          } if @max_age_in_days.nil? or ( Date.parse(pubdate) >= (Date.today - @max_age_in_days) )
+        end.compact
+
         log_info("RSS #{config[:name]} items: #{items}")
         push :items => items[0...config[:nitems]]
       rescue => e
